@@ -27,6 +27,8 @@ tasks.register("typst-compile") {
 
         var allSuccess = true
 
+        File("$rootDir/output").deleteRecursively()
+
         for (source in sources) {
             val modes = try {
                 typst("query", source, "<available-modes>", "--field", "value")
@@ -55,6 +57,8 @@ tasks.register("typst-compile") {
                 }
             }
         }
+
+        modefile.writeText("dev")
 
         if(!allSuccess) {
             throw AssertionError("Not all files were compiled")
