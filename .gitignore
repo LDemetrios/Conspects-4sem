@@ -6,6 +6,4 @@
 # Ignore Gradle build output directory
 build
 
-mode.txt
-
 /*.pdf

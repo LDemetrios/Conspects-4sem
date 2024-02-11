@@ -21,17 +21,24 @@ tasks.register("typst-compile") {
     group = "typst"
     description = "Compiles all the typst files with all the available modes"
     doLast {
-        val sources = ("find"(rootDir.path, "-name", "*.typ"))
+        val pdfs = ("find"(rootDir.path, "-name", "*.pdf"))
+        pdfs.forEach {
+            File(it).delete()
+        }
+
+        val sources = ("find"(rootDir.path + "/sources", "-name", "*.typ"))
 
         val modefile = File("mode.txt")
+        val modeWas = if (modefile.exists()) modefile.readText() else null
 
         var allSuccess = true
 
         File("$rootDir/output").deleteRecursively()
 
+
         for (source in sources) {
             val modes = try {
-                typst("query", source, "<available-modes>", "--field", "value")
+                typst("query", "--root", rootDir.path, source, "<available-modes>", "--field", "value")
             } catch (e: ExecException) {
                 println("Can't query available modes for $source")
                 allSuccess = false
@@ -48,9 +55,20 @@ tasks.register("typst-compile") {
             for (mode in modes) {
                 try {
                     val modedir = "${rootDir}/output/$mode"
-                    File(modedir).mkdirs()
+                    File(modedir).parentFile.mkdirs()
                     modefile.writeText(mode)
-                    typst("c", source, "${rootDir}/output/$mode/" + File(source).nameWithoutExtension + ".pdf")
+
+                    val dest = "${rootDir}/output/$mode/" +
+                            File(source).parent.drop((rootDir.path + "/sources/").length) +
+                            "/" + File(source).nameWithoutExtension + ".pdf"
+                    File(dest).parentFile.mkdirs()
+                    typst(
+                        "c",
+                        "--root",
+                        rootDir.path,
+                        source,
+                        dest
+                    )
                 } catch (e: ExecException) {
                     allSuccess = false
                     println("Can't compile $source with mode $mode")
@@ -58,9 +76,9 @@ tasks.register("typst-compile") {
             }
         }
 
-        modefile.writeText("dev")
+        if (modeWas != null) modefile.writeText(modeWas)
 
-        if(!allSuccess) {
+        if (!allSuccess) {
             throw AssertionError("Not all files were compiled")
         }
     }
