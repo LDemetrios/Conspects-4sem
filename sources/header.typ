@@ -82,7 +82,7 @@
 ]
 
 #let cyrsmallcaps(body) = [
-  #show regex("[а-яё]") : it => text(size: .7em, upper(it))
+  #show regex("[а-яёa-z]") : it => text(size: .7em, upper(it))
   #body
 ]
 
@@ -146,9 +146,9 @@
   show heading : (it) => [
     #set text(size: descr.at(it.level - 1).at(0))
     #set align(descr.at(it.level - 1).at(1))
-    #it
+    #cyrsmallcaps(it)
   ]
-  cyrsmallcaps(body)
+  body
 }
 
 #let dx = $upright(d)x$
@@ -241,6 +241,78 @@
 ) = mode
 
 #let mode = mode.shortcut
+
+#let labeled-try-catch(unique-label, first, on-error) = {
+  locate(loc => {
+    let lbl = label(unique-label)
+    let first-time = query(locate(_ => {}).func(), loc).len() == 0
+    if first-time or query(lbl, loc).len() > 0 {
+      [#first() #lbl]
+    } else {
+      on-error()
+    }
+  })
+}
+
+#let try-catch-counter = state("try-catch-counter", 0)
+
+#let try-catch(a, b) = {
+  try-catch-counter.display(cnt => {
+    labeled-try-catch("try-catch-lbl-" + str(cnt), a, b)
+  })
+  try-catch-counter.update(cnt => { cnt + 1 })
+}
+
+#let do-show-results = state("do-show-results", false)
+#let exec-call-counter = state("exec-call-counter", 0)
+#let exec-results-file = state("exec-results-file", none)
+
+#let exec(
+  files, /* dict<filename, string> */
+  commands, /* array<command : array<args>> */
+  displayer, /* function (result) => content */
+  stub: () => text(fill: blue, `Evaluation results aren't displayed`), /* function () => replacement */
+) = {
+  exec-call-counter.display(
+    cnt => {
+      exec-results-file.display(
+        res => {
+          do-show-results.display(
+            do-show => {
+              [
+                #metadata((files: files, commands: commands))#label("exec-call-" + str(cnt))
+              ]
+              if do-show {
+                let eval-res = eval((res.reader)(res.results-file)).at(cnt)
+                displayer(eval-res)
+              } else {
+                stub()
+              }
+            },
+          )
+        },
+      )
+    },
+  )
+
+  exec-call-counter.update(it => { it + 1 })
+}
+
+#let setup-exec(results-file, reader) = {
+  locate(loc => [
+    #metadata(exec-call-counter.final(loc))#label("exec-calls-number")
+  ])
+  exec-results-file.update(it => (results-file:results-file, reader:reader))
+  try-catch(() => {
+    let _ = reader(results-file)
+    do-show-results.update(it => true)
+  }, () => {
+    do-show-results.update(it => false)
+  })
+  [
+    #metadata(results-file)#label("exec-results-file")
+  ]
+}
 
 #let general-style = (body) => [
   #show math.ast: math.dot

@@ -1,21 +1,73 @@
 import org.gradle.process.internal.ExecException
+import org.ldemetrios.build.*
+import java.io.BufferedReader
 import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.InputStreamReader
+import java.util.stream.Collectors
 
-operator fun String.invoke(vararg args: String): List<String> {
-    val out = ByteArrayOutputStream()
-//    val err = ByteArrayOutputStream()
-    val res = project.exec {
-        println(this@invoke + " " + args.joinToString(" "))
-        commandLine(this@invoke, *args)
-        standardOutput = out
-        errorOutput = System.err
-        workingDir = project.projectDir
+org.ldemetrios.build.project = project
+
+fun processCode(testfile: String) {
+    val execCallsNumber = queryAsSingleOrNull<QueryRes<Int>>(testfile, "exec-calls-number")?.value ?: return
+    println("Found $execCallsNumber code fragments")
+
+    val dir = File("__tmp__")
+
+    val executionResults = mutableListOf<List<Triple<String, String, Int>>>()
+
+    for (i in 0 until execCallsNumber) {
+        val fragmentExecutionResults = mutableListOf<Triple<String, String, Int>>()
+
+        val fragment = queryAsSingle<QueryRes<ExecData>>(testfile, "exec-call-$i").value
+
+        if (dir.exists()) throw IOException()
+
+        for ((filename, content) in fragment.files) {
+            val file = File("$dir/$filename")
+            file.parentFile.mkdirs()
+            file.createNewFile()
+            file.writeText(content)
+        }
+
+        for (command in fragment.commands) {
+            val (out, err, ret) = call(command, root = dir)
+
+            fragmentExecutionResults.add(Triple(out, err, ret))
+        }
+
+        dir.deleteRecursively()
+
+        executionResults.add(fragmentExecutionResults)
     }
 
-    return out.toString().split(Regex("\r\n|[\r\n\u2028\u2029\u0085]")).filter(String::isNotBlank)
+    val resultsFile = queryAsSingle<QueryRes<String>>(testfile, "exec-results-file").value
+
+    println(resultsFile)
+
+    fun String.toCode() = "\"" +
+            this
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t") + "\""
+
+    File("${File(testfile).parent}/$resultsFile").writeText(
+        executionResults.joinToString(", \n", "(\n", "\n)") {
+            it.joinToString(", \n", "(\n", "\n),") {
+                """(
+            |   output:${it.first.toCode()},
+            |   error:${it.second.toCode()},
+            |   returnCode:${it.third}
+            |),
+        """.trimMargin()
+            }
+        }
+    )
 }
 
-val typst = "typst"
+
+inline fun <reified T> Any?.cast(): T = this as T
 
 tasks.register("typst-compile") {
     group = "typst"
@@ -38,19 +90,22 @@ tasks.register("typst-compile") {
 
         for (source in sources) {
             val modes = try {
-                typst("query", "--root", rootDir.path, source, "<available-modes>", "--field", "value")
+                queryAsSingleOrNull<QueryRes<List<String>>>(source, "available-modes")?.value
             } catch (e: ExecException) {
                 println("Can't query available modes for $source")
                 allSuccess = false
                 continue
             }
-                .joinToString(" ")
-                .filter { it !in "[]" }
-                .split(",")
-                .filter(String::isNotBlank)
-                .map(String::trim)
-                .map { it.substring(1, it.length - 1) }
 
+            if (modes == null) {
+                val dest = "${rootDir}/output/" +
+                        File(source).parent.drop((rootDir.path + "/sources/").length) +
+                        "/" + File(source).nameWithoutExtension + ".pdf"
+                File(dest).parentFile.mkdirs()
+                processCode(source)
+                "typst"("c", "--root", rootDir.path, source, dest)
+                continue
+            }
 
             for (mode in modes) {
                 try {
@@ -58,11 +113,13 @@ tasks.register("typst-compile") {
                     File(modedir).parentFile.mkdirs()
                     modefile.writeText(mode)
 
+                    processCode(source)
+
                     val dest = "${rootDir}/output/$mode/" +
                             File(source).parent.drop((rootDir.path + "/sources/").length) +
                             "/" + File(source).nameWithoutExtension + ".pdf"
                     File(dest).parentFile.mkdirs()
-                    typst(
+                    "typst"(
                         "c",
                         "--root",
                         rootDir.path,
@@ -81,5 +138,11 @@ tasks.register("typst-compile") {
         if (!allSuccess) {
             throw AssertionError("Not all files were compiled")
         }
+    }
+}
+
+tasks.register("magic") {
+    doLast {
+        println(this.javaClass.name)
     }
 }
