@@ -160,7 +160,7 @@
   #box(pad(bottom: -.5em, text(size: 2em, "!"))) #x
 ]
 
-#let modes = (/*development: (
+#let modes = (development: (
   name: "Development",
   shortcut: "development",
   background: black,
@@ -196,7 +196,7 @@
   green-ish: rgb("#77ff77"),
   blue-ish: rgb("#7777ff"),
   yellow-ish: rgb("#ffff77"),
-), */ sepia: (
+),  sepia: (
   name: "Sepia",
   shortcut: "sepia",
   background: rgb("#ebd5b3"),
@@ -208,7 +208,7 @@
   green-ish: rgb("#007700"),
   blue-ish: rgb("#000077"),
   yellow-ish: rgb("#777700"),
-), /* regular: (
+),  regular: (
   name: "Regular",
   shortcut: "regular",
   background: rgb("#ffffff"),
@@ -220,7 +220,7 @@
   green-ish: rgb("#007700"),
   blue-ish: rgb("#000077"),
   yellow-ish: rgb("#777700"),
-)*/)
+))
 
 
 
