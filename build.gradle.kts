@@ -5,10 +5,16 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStreamReader
 import java.util.stream.Collectors
+import kotlin.system.exitProcess
 
 org.ldemetrios.build.project = project
 
 fun processCode(testfile: String) {
+    val resultsFile = File("${testfile}exec")
+
+    if (resultsFile.exists()) resultsFile.delete()
+
+
     val execCallsNumber = queryAsSingleOrNull<QueryRes<Int>>(testfile, "exec-calls-number")?.value ?: return
     println("Found $execCallsNumber code fragments")
 
@@ -21,7 +27,7 @@ fun processCode(testfile: String) {
 
         val fragment = queryAsSingle<QueryRes<ExecData>>(testfile, "exec-call-$i").value
 
-        if (dir.exists()) throw IOException()
+        if (dir.exists()) dir.deleteRecursively()
 
         for ((filename, content) in fragment.files) {
             val file = File("$dir/$filename")
@@ -31,9 +37,12 @@ fun processCode(testfile: String) {
         }
 
         for (command in fragment.commands) {
-            val (out, err, ret) = call(command, root = dir)
-
-            fragmentExecutionResults.add(Triple(out, err, ret))
+            try {
+                val (out, err, ret) = call(command, root = dir)
+                fragmentExecutionResults.add(Triple(out, err, ret))
+            } catch (e: ExecException) {
+                throw Throwable("Unexpected", e)
+            }
         }
 
         dir.deleteRecursively()
@@ -41,9 +50,8 @@ fun processCode(testfile: String) {
         executionResults.add(fragmentExecutionResults)
     }
 
-    val resultsFile = queryAsSingle<QueryRes<String>>(testfile, "exec-results-file").value
 
-    println(resultsFile)
+//    println(resultsFile)
 
     fun String.toCode() = "\"" +
             this
@@ -52,22 +60,34 @@ fun processCode(testfile: String) {
                 .replace("\r", "\\r")
                 .replace("\t", "\\t") + "\""
 
-    File("${File(testfile).parent}/$resultsFile").writeText(
-        executionResults.joinToString(", \n", "(\n", "\n)") {
-            it.joinToString(", \n", "(\n", "\n),") {
-                """(
+    resultsFile.run {
+        if (exists()) delete()
+        parentFile.mkdirs()
+        createNewFile()
+        writeText(
+            executionResults.joinToString(" \n", "(\n", "\n)") {
+                it.joinToString("\n", "(\n", "\n),") {
+                    """(
             |   output:${it.first.toCode()},
             |   error:${it.second.toCode()},
             |   returnCode:${it.third}
             |),
         """.trimMargin()
+                }
             }
-        }
-    )
+        )
+    }
 }
 
 
 inline fun <reified T> Any?.cast(): T = this as T
+
+tasks.register("typst-clean-exec") {
+    "find"(rootDir.path, "-name", "*.typexec").forEach {
+        File(it).delete()
+    }
+
+}
 
 tasks.register("typst-compile") {
     group = "typst"
@@ -80,6 +100,7 @@ tasks.register("typst-compile") {
 
         val sources = ("find"(rootDir.path + "/sources", "-name", "*.typ"))
 
+
         val modefile = File("mode.txt")
         val modeWas = if (modefile.exists()) modefile.readText() else null
 
@@ -89,6 +110,10 @@ tasks.register("typst-compile") {
 
 
         for (source in sources) {
+            File(source + "exec").delete()
+            val doRender = queryAs<List<QueryRes<Boolean>>>(source, "do-not-render")
+            if (doRender.isNotEmpty()) continue
+
             val modes = try {
                 queryAsSingleOrNull<QueryRes<List<String>>>(source, "available-modes")?.value
             } catch (e: ExecException) {

@@ -1,0 +1,5 @@
+(
+    ("cmake", "-B", "cmake-build-debug",),
+    ("cmake", "--build", "cmake-build-debug", "--target", "Main", "-j", "6",),
+    ("cmake-build-debug/Main",),
+)

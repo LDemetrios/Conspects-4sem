@@ -136,10 +136,6 @@
   #rest
 ]
 
-#let TODO(x) = rect(width: 100%, height: 5em, fill: luma(255 - 235), stroke: 1pt + white)[
-  #set align(center + horizon)
-  #text(size: 1.5em, "TODO!")\ #x
-]
 
 #let smallcaps-headings(..level-descriptions) = (body) => {
   let descr = level-descriptions.pos()
@@ -164,7 +160,7 @@
   #box(pad(bottom: -.5em, text(size: 2em, "!"))) #x
 ]
 
-#let modes = (development: (
+#let modes = (/*development: (
   name: "Development",
   shortcut: "development",
   background: black,
@@ -200,7 +196,7 @@
   green-ish: rgb("#77ff77"),
   blue-ish: rgb("#7777ff"),
   yellow-ish: rgb("#ffff77"),
-), sepia: (
+), */ sepia: (
   name: "Sepia",
   shortcut: "sepia",
   background: rgb("#ebd5b3"),
@@ -212,10 +208,10 @@
   green-ish: rgb("#007700"),
   blue-ish: rgb("#000077"),
   yellow-ish: rgb("#777700"),
-), regular: (
+), /* regular: (
   name: "Regular",
   shortcut: "regular",
-  background: rgb("#ebd5b3"),
+  background: rgb("#ffffff"),
   foreground: black,
   bbf: luma(191),
   bff: luma(63),
@@ -224,7 +220,9 @@
   green-ish: rgb("#007700"),
   blue-ish: rgb("#000077"),
   yellow-ish: rgb("#777700"),
-))
+)*/)
+
+
 
 #let mode = modes.at(read("../mode.txt"))
 
@@ -241,6 +239,13 @@
 ) = mode
 
 #let mode = mode.shortcut
+
+
+#let TODO(x) = rect(width: 100%, height: 5em, fill: bbf, stroke: 1pt + foreground)[
+  #set align(center + horizon)
+  #text(size: 1.5em, "TODO!")\ #x
+]
+
 
 #let labeled-try-catch(unique-label, first, on-error) = {
   locate(loc => {
@@ -283,8 +288,12 @@
                 #metadata((files: files, commands: commands))#label("exec-call-" + str(cnt))
               ]
               if do-show {
-                let eval-res = eval((res.reader)(res.results-file)).at(cnt)
-                displayer(eval-res)
+                let eval-res = eval((res.reader)(res.results-file))
+                if (eval-res.len() > cnt) {
+                  displayer(eval-res.at(cnt))
+                } else {
+                  `Not yet evaluated`
+                }
               } else {
                 stub()
               }
@@ -299,10 +308,7 @@
 }
 
 #let setup-exec(results-file, reader) = {
-  locate(loc => [
-    #metadata(exec-call-counter.final(loc))#label("exec-calls-number")
-  ])
-  exec-results-file.update(it => (results-file:results-file, reader:reader))
+  exec-results-file.update(it => (results-file: results-file, reader: reader))
   try-catch(() => {
     let _ = reader(results-file)
     do-show-results.update(it => true)
@@ -313,6 +319,38 @@
     #metadata(results-file)#label("exec-results-file")
   ]
 }
+
+#let close-exec() = {
+  exec-call-counter.display(cnt => [
+    #metadata(cnt)#label("exec-calls-number")
+  ])
+}
+
+#let do-not-render() = {
+  [
+    #metadata(true)<do-not-render>
+  ]
+}
+
+#do-not-render()
+
+#let to-code(data) = {
+  if type(data) == str {
+    data
+  } else if type(data) == content {
+    if data.func() == raw {
+      data.text
+    } else {
+      assert(false)
+    }
+  } else if type(data) == none {
+    ""
+  } else {
+    assert(false)
+  }
+}
+
+#let shraw(body, ..args) = pad(left: 2em, y: .5em, raw(align:left, to-code(body), ..args))
 
 #let general-style = (body) => [
   #show math.ast: math.dot
