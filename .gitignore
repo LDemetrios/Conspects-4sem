@@ -3,7 +3,9 @@
 
 !output
 
+
 # Ignore Gradle build output directory
-build
+buildSrc/build
+
 
 # /*.pdf
