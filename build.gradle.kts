@@ -38,7 +38,9 @@ fun processCode(testfile: String) {
 
         for (command in fragment.commands) {
             try {
+                println(command)
                 val (out, err, ret) = call(command, root = dir)
+                println("evaluated")
                 fragmentExecutionResults.add(Triple(out, err, ret))
             } catch (e: ExecException) {
                 throw Throwable("Unexpected", e)

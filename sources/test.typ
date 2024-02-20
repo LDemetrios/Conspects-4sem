@@ -1,10 +1,10 @@
-#import "header.typ" : *
+//#import "header.typ" : *
 
-#show : general-style
+//#show : general-style
 
 bbb
 
-#setup-exec("test.typexec", it => read(it))
+//#setup-exec("test.typexec", it => read(it))
 
 = aaaaaa
 
@@ -15,16 +15,19 @@ aa "bb" cc
 $a /b$
 a <l>
 
-#exec(
+/*#exec(
   ("test.sh": "ls -Ali\n"),
   (("bash", "test.sh"),),
   (text) => eval(text.at(0).output.replace("\n", "\n\n"), mode: "markup"),
-)
+)*/
 
 #set math.equation(numbering: "(1)")
 
 $#rect[a]$<fe>
 
+#metadata((a:1, b:2))
+
+$a/b$
 - 1
 - 2 
   - 3

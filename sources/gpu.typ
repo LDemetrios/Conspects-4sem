@@ -8,9 +8,9 @@
 
 == Начало
 
-=== Как всё это компилировать
+=== Как это всё компилировать
 
-==== Хост-код
+===== Хост-код
 
 `.h` файлы для C/C++ есть на официальном сайте, правда, там есть
 задепрекейченные полезные функции. Придётся задефайнить версию. Достаточно
@@ -20,11 +20,11 @@
 package. Под виндоусом --- откуда-то взять. На официальном сайте Кроноса есть.
 Обратите внимание на битность!
 
-==== Девайс-код
+===== Девайс-код
 
 Само разберётся. Обычно.
 
-==== Запуск
+===== Запуск
 
 В пределах конспекта код запускается с помощью `cmake`:
 
@@ -32,9 +32,7 @@ package. Под виндоусом --- откуда-то взять. На офи
 
 #shraw(cl-cmake, lang: "cmake")
 
-#let cpp-prelude = state("cpp-prelude", "")
-
-Инклюдим некоторое количество штук:
+#let cpp-prelude = state("cpp-prelude", read("aux/gpu-prelude.txt"))
 
 #let append-prelude(code, and-show: true) = {
   cpp-prelude.update(it => it + "\n\n" + to-code(code))
@@ -44,33 +42,9 @@ package. Под виндоусом --- откуда-то взять. На офи
   }
 }
 
-#append-prelude(```cppprelude
-#include <iostream>
-#include <set>
-#include <vector>
-#include <CL/cl.h>
-```)
-
-Нам часто придётся выводить векторы, поэтому
-
-#append-prelude(```cppprelude
-template <class T>
-std::ostream& operator<<(std::ostream& out, std::vector<T>& v) {
-    out << '[';
-    for (size_t i = 0; i < v.size(); i++) {
-        if (i != 0) out << ' ';
-        out << v[i];
-    }
-    out << ']';
-    return out;
-}
-```)
-
-И, поскольку я не плюсовик, напишу так и вы будете страдать:
-
-#append-prelude(```cppprelude
-#define println(x) do { std::cout << x << std::endl; } while(0)
-```)
+Как водится в плюсах, придётся написать некоторое количество функций и
+(тьфу-тьфу) макросов, чтобы было удобно. Полный перечень того, что использую я,
+можно прочитать в файле "sources/aux/gpu-prelude".
 
 #let cpp-code = state("cpp-code", "")
 
@@ -86,10 +60,15 @@ std::ostream& operator<<(std::ostream& out, std::vector<T>& v) {
     [\ ]
     text(fill: red, raw(result.at(1).at("error", default: "")))
   } else {
-    raw(result.at(2).at("output", default: "").split("//////////\n").at(-1, default:""))
-    if (result.at(1).at("returnCode", default: -1) > 0) {
-      [\ ]
-      raw("Exited with " + result.at(1).returnCode)
+    raw(
+      result.at(2).at("output", default: "").split("//////////\n").at(-1, default: "").trim(),
+    )
+    if (result.at(2).at("returnCode", default: -1) > 0) {
+      text(fill: red)[
+
+        #raw("Exited with " + str(result.at(1).returnCode))\
+        #raw(result.at(2).at("error", default: ""))\
+      ]
     }
   }
 }
@@ -98,28 +77,33 @@ std::ostream& operator<<(std::ostream& out, std::vector<T>& v) {
   cpp-prelude.display(prelude => {
     // raw(prelude + "int main() {\n" + body.text + "\n}\n")
     // [\ \ ]
-    cpp-code.display(body =>
+    cpp-code.display(body =>{
+      // raw(body)
     exec((
       "main.cpp": prelude + "\n\nint main() {\n" + body + "\n}\n",
       "CMakeLists.txt": cl-cmake,
     ), eval(read("aux/cmake-build-command.txt")), (result) => {
-      tablex(
-        columns: (2em, auto),
-        auto-vlines: false,
-        auto-hlines: false,
-        stroke: foreground,
-        [],
-        vlinex(),
-        pad(.25em, left: .5em, parse-cmake-result(result)),
-      )
-    }))
+      let data = parse-cmake-result(result);
+      if not (data.func() == raw and data.text == "") {
+        tablex(
+          columns: (2em, auto),
+          auto-vlines: false,
+          auto-hlines: false,
+          stroke: foreground,
+          [],
+          vlinex(),
+          pad(.25em, left: .5em, text(size: 1.25em, data)),
+        )
+      } else { none }
+    })
+    })
   })
 }
 
 #show raw.where(lang: "excpp") : (body) => {
   cpp-code.update(it => body.text)
 
-  pad(right:-100em, text(size: 1.25em, shraw(body, lang: "cpp")))
+  pad(right: -100em, text(size: 1.25em, shraw(body, lang: "cpp")))
 
   execcpp()
 }
@@ -127,7 +111,7 @@ std::ostream& operator<<(std::ostream& out, std::vector<T>& v) {
 #show raw.where(lang: "excppapp") : (body) => {
   cpp-code.update(it => it + ";\n println(\"//////////\");\n " + body.text)
 
-  pad(right:-100em, text(size: 1.25em, shraw(body, lang: "cpp")))
+  pad(right: -100em, text(size: 1.25em, shraw(body, lang: "cpp")))
 
   execcpp()
 }
@@ -151,7 +135,9 @@ println(v);
 `create`. Тогда код ошибки, если нужен, по ссылке, передаваемой в аргумент...
 Такой типичный С.
 
-==== `clGetPlatformIDs`
+==== Получение девайсов
+
+===== `clGetPlatformIDs`
 --- API для получения списка доступных платформ. Принимает... Указатель, размер,
 и указатель на размер... Буффер, размер буффера, и то, куда записывать, сколько.
 
@@ -181,7 +167,9 @@ println(platforms);
 который умеют понимать другие функции апи.
 
 ==== `clGetPlatformInfo`
---- Получаем информацию о конкретной платформе. Сюда передаётся `platformID`, полученный на предыдущем этапе, и константа, обозначающая, какую информацию мы хотим. Остальное --- как раньше.
+--- Получаем информацию о конкретной платформе. Сюда передаётся `platformID`,
+полученный на предыдущем этапе, и константа, обозначающая, какую информацию мы
+хотим. Остальное --- как раньше.
 
 ```excppapp
 for (auto platform : platforms) {
@@ -196,92 +184,223 @@ for (auto platform : platforms) {
 }
 ```
 
-Здесь можно запросить разную информацию. Но сначала давайте научимся в нормальном виде запрашивать информацию... А то это же ужас. Напишем хоть какую-то обёртку (да простят меня боги плюсов за количество `auto` в этом коде). 
+Здесь можно запросить разную информацию. Но сначала давайте сначала сделаем
+какую-нибудь обёртку для всех этих вызовов. Можно было бы сделать это
+по-честному template функцией, но мы хотим без лишней возни удобные сообщения об
+ошибках...
 
-#append-prelude(```
-template <class SizeT, class T>
-std::vector<T> request(auto func, auto... args) {
-    SizeT size;
-    func(args..., 0, nullptr, &size);
-    std::vector<T> result(size);
-    func(args..., size, result.data(), &size);
-    return result;
-}
-```)
+#text(
+  size: .7em,
+  shraw(
+    ```
+    #define request_error_message(func, ...) "Request " #func "(" #__VA_ARGS__ __VA_OPT__(", ") "...) terminated with non-zero exit code "
 
-Теперь это будет хотя бы относительно прилично выглядеть
+    #define request(SizeT, T, func, ...) cl_call<SizeT, T>(&func, request_error_message(func __VA_OPT__(,) __VA_ARGS__ ) __VA_OPT__(,) __VA_ARGS__)
+    ```,
+    lang: "cpp",
+  ),
+)
+
+Выколите мне глаза. И таких ещё парочку. Смотрите сами знаете где.
+
+Зато теперь относительно нормально вызываем:
 
 ```excpp
-std::vector<cl_platform_id> platforms =
-            request<uint32_t, cl_platform_id>(&clGetPlatformIDs);
+std::vector<cl_platform_id> platforms = request(uint32_t, cl_platform_id, clGetPlatformIDs);
 println(platforms);
-println("");
+println();
 
 for (auto platform : platforms) {
     println(platform);
-    std::vector<char> name = request<size_t, char>(
-          &clGetPlatformInfo, platform, CL_PLATFORM_NAME
-    );
-    std::string str(name.begin(), name.end());
-    println(str);
+    auto profile = request_str(clGetPlatformInfo, platform, CL_PLATFORM_PROFILE);
+    auto version = request_str(clGetPlatformInfo, platform, CL_PLATFORM_VERSION);
+    auto name = request_str(clGetPlatformInfo, platform, CL_PLATFORM_NAME);
+    auto vendor = request_str(clGetPlatformInfo, platform, CL_PLATFORM_VENDOR);
+    auto extensions = request_str(clGetPlatformInfo, platform, CL_PLATFORM_EXTENSIONS);
+    auto host_timer_resolution = request(size_t, cl_ulong, clGetPlatformInfo, platform,
+                                          CL_PLATFORM_HOST_TIMER_RESOLUTION);
+    println("Profile:               ", profile);
+    println("Version:               ", version);
+    println("Name:                  ", name);
+    println("Vendor:                ", vendor);
+    println("Extensions:            ", extensions);
+    println("Host Timer Resolution: ", host_timer_resolution);
 }
 ```
 
-#TODO("show rule 'типичный С'")
-#TODO("getDeviceIDs")
+==== `clGetDeviceIDs`
 
-== Делаем что-то полезное
+Наконец, мы хотим получить от платформы список доступных девайсов. Эта функция
+принимает id платформы и тип девайса, который мы хотим, на выбор:
+
+#align(
+  center,
+)[
+  #box(
+    width: 90%,
+  )[
+    #tablex(
+      columns: 2,
+      stroke: foreground,
+      [CL_DEVICE_TYPE_CPU],
+      [An OpenCL device that is the host processor. The host processor runs the OpenCL
+        implementations and is a single or multi-core CPU.],
+      [CL_DEVICE_TYPE_GPU],
+      [An OpenCL device that is a GPU. By this we mean that the device can also be used
+        to accelerate a 3D API such as OpenGL or DirectX.],
+      [CL_DEVICE_TYPE_ACCELERATOR],
+      [Dedicated OpenCL accelerators (for example the IBM CELL Blade). These devices
+        communicate with the host processor using a peripheral interconnect such as
+        PCIe.],
+      [CL_DEVICE_TYPE_DEFAULT],
+      [The default OpenCL device in the system.],
+      [CL_DEVICE_TYPE_ALL],
+      [All OpenCL devices available in the system.],
+    )
+  ]
+
+  -- Прямиком из документации
+
+  #box(
+    width: 90%,
+  )[
+    #tablex(
+      columns: 2,
+      stroke: foreground,
+      [CL_DEVICE_TYPE_CPU],
+      [Устройство OpenCL, главный процессор. Хост-процессор запускает реализации OpenCL
+        и представляет собой одно-- или многоядерный CPU.],
+      [CL_DEVICE_TYPE_GPU],
+      [Устройство OpenCL, графический процессор. Под этим мы подразумеваем, что
+        устройство также можно использовать для ускорения 3D API, такого как OpenGL или
+        DirectX.],
+      [CL_DEVICE_TYPE_ACCELERATOR],
+      [Специальные ускорители OpenCL (например, IBM~CELL~Blade). Эти устройства
+        взаимодействуют с главным процессором с помощью периферийного соединения, такого
+        как PCIe.],
+      [CL_DEVICE_TYPE_DEFAULT],
+      [Устройство OpenCL по умолчанию в системе.],
+      [CL_DEVICE_TYPE_ALL],
+      [ Все устройства OpenCL, доступные в системе. ],
+    )
+  ]
+
+  -- Мне лень переводить.
+
+]
+
+#cpp-code.update(
+  it => "auto platforms = request(uint32_t, cl_platform_id, clGetPlatformIDs);",
+)
+
+#text(
+  size: .8em,
+)[
+```excppapp
+for (auto platform : platforms) {
+    println("For platform ", platform);
+    println("CPU:         ", request(cl_uint, cl_device_id, clGetDeviceIDs, platform, CL_DEVICE_TYPE_CPU));
+    println("GPU:         ", request(cl_uint, cl_device_id, clGetDeviceIDs, platform, CL_DEVICE_TYPE_GPU));
+    println("ACCELERATOR: ", request(cl_uint, cl_device_id, clGetDeviceIDs, platform, CL_DEVICE_TYPE_ACCELERATOR));
+    println("DEFAULT:     ", request(cl_uint, cl_device_id, clGetDeviceIDs, platform, CL_DEVICE_TYPE_DEFAULT));
+    println("ALL:         ", request(cl_uint, cl_device_id, clGetDeviceIDs, platform, CL_DEVICE_TYPE_ALL));
+}
+```
+]
+
+Здесь внезапно обнаруживаем, что если девайсов не найдено, то первый вызов
+функции не "вернёт" 0, а выдаст код ошибки -1. Учитываем это.
+
+Ну круто, у нас одна платформа с одним девайсом. Зато выбирать не надо!
+
+==== Делаем что-то полезное
 
 Допустим, мы выбрали девайс, который нам нравится, с которым мы хотим работать.
 
+```excppapp
+std::vector<cl_device_id> devices = request(
+    cl_uint, cl_device_id, clGetDeviceIDs, platforms[0], CL_DEVICE_TYPE_ALL
+);
+```
+
+... или несколько...
+
 Теперь нам нужно создать контекст.
 
-- `clCreateContext`
+===== `clCreateContext`
 
 Контекст --- это своего рода `globalThis` от мира OpenCL. Он инкапсулирует в
 себе всё, что мы хотим из хост-кода делать с девайс-кодом.
 
+Функция принимает кучу всего. В частности, умеет принимать несколько девайсов,
+если они принадлежат одной платформе. Ну, пока обойдёмся. В качестве `user_data`
+передаём nullptr. `properties` --- тоже странная штука, пока обойдёмся без неё.
+
+```excppapp
+cl_int errcode;
+cl_context context = clCreateContext(
+    nullptr, devices.size(), devices.data(), nullptr, nullptr, &errcode
+);
+println("Error code: ", errcode);
+println("Context: ", context);
+```
+
+Ещё один несодержательный указатель. Ах да, и нам нужен новый макрос.
+
+#cpp-code.update(
+  it => ```cpp
+  auto platforms = request(uint32_t, cl_platform_id, clGetPlatformIDs);
+  std::vector<cl_device_id> devices = request(
+      cl_uint, cl_device_id, clGetDeviceIDs, platforms[0], CL_DEVICE_TYPE_ALL
+  );```.text,
+)
+
+```excppapp
+auto context = create(
+    cl_context, clCreateContext, nullptr, devices.size(), devices.data(), nullptr, nullptr
+);
+println(context);
+```
+
 Теперь нужно в этом контексте создать тот код, который мы будем запускать в этом
 контексте:
 
-- `clCreateProgramWithSource`
+==== `clCreateProgramWithSource`
 
-  "Принимает" массив указателей на source.
+"Принимает" массив указателей на source.
 
-  #TODO("Наебаться на сто дурных")
+Обычно мы хотим не извращаться с C-style строчками, а иметь отдельный файл с
+исходным кодом (обычно расширение `.cl`). То есть, надо открыть файл, прочитать
+и скормить (компиляция девайс-кода будет уже в рантайме). Предлагается
+использовать обычные C'шные функции fread и прочее. Открыть в `binary`, `seek`
+до конца и так далее. 
 
-  Обычно мы хотим не извращаться с C-style строчками, а иметь отдельный файл с
-  исходным кодом (обычно расширение `.cl`). То есть, надо открыть файл, прочитать
-  и скормить (компиляция девайс-кода будет уже в рантайме). Предлагается
-  использовать обычные C'шные функции fread и прочее. Открыть в `binary`, `seek`
-  до конца и так далее. Типичный С...
+Эта функция не делает ничего особенного. Если мы тут зафейлились, мы где-то
+конкретно налажали --- передали кривой буфер или ещё что-нибудь. Ошибки внутри
+девайс-кода будут обнаруживаться уже потом.
 
-  Эта функция не делает ничего особенного. Если мы тут зафейлились, мы где-то
-  конкретно налажали --- передали кривой буфер или ещё что-нибудь. Ошибки внутри
-  девайс-кода будут обнаруживаться уже потом.
+==== `clBuildProgram`
 
-- `clBuildProgram`
+Вот это уже серьёзно: компиляция нашего исходника. Передаём сюда `id` нашего
+`program`'a, который мы по'create'или, и девайс, под который надо скомпилиться.
+Или передать null, и тогда будет скомпилированно под все девайсы, привязанные к
+контексту.
 
-  Вот это уже серьёзно: компиляция нашего исходника. Передаём сюда `id` нашего
-  `program`'a, который мы по'create'или, и девайс, под который надо скомпилиться.
-  Или передать null, и тогда будет скомпилированно под все девайсы, привязанные к
-  контексту.
+Компиляция может занимать продолжительное время! Имеет смысл локально
+закэшировать. Но так как результат сильно зависит от драйверов, девайсов,
+версий, погоды, фазы луны; распространять прекомпилированную версию не имеет
+смысла.
 
-  Компиляция может занимать продолжительное время! Имеет смысл локально
-  закэшировать. Но так как результат сильно зависит от драйверов, девайсов,
-  версий, погоды, фазы луны; распространять прекомпилированную версию не имеет
-  смысла.
+Если в девайс-коде есть какая-нибудь синтаксическая (или ещё что-нибудь) ошибка,
+то она вылезет здесь. Обязательно проверять результат здесь! Можно сделать
+`clGetBuildInfo`, чтобы получить билд-лог (своего рода compilation error), ему
+нужно давать честный `id` девайса.
 
-  Если в девайс-коде есть какая-нибудь синтаксическая (или ещё что-нибудь) ошибка,
-  то она вылезет здесь. Обязательно проверять результат здесь! Можно сделать
-  `clGetBuildInfo`, чтобы получить билд-лог (своего рода compilation error), ему
-  нужно давать честный `id` девайса.
+build-options --- не должен быть null! Некоторые платформы могут его не
+пережить. Передайте пустую строчку. Или, лучше, используйте по назначению!
+Например, можно с помощью `-D` передавать дефайнами переменные.
 
-  build-options --- не должен быть null! Некоторые платформы могут его не
-  пережить. Передайте пустую строчку. Или, лучше, используйте по назначению!
-  Например, можно с помощью `-D` передавать дефайнами переменными.
-
-=== Наконец, девайс-код
+==== Наконец, девайс-код
 
 ```
 kernel void add(global const int *a, global const int *b, global int *c) {
@@ -294,64 +413,238 @@ kernel void add(global const int *a, global const int *b, global int *c) {
 - `kernel` означает, что это точка входа в программу. Их может быть несколько ---
   это не совсем то же, что `main`.
 
-- `clCreateKernel` --- создаёт идентификатор, через который мы сможем вызывать
-  `kernel`. Передаём туда имя.
+- `global` означает (что означает?)
+
+Давайте делать.
+
+```excppapp
+const char* source = "kernel void add(global const int *a, "
+                                                "global const int *b, global int *c) {\n"
+    "    *c = *a + *b;\n"
+    "}\n";
+std::vector<const char*> source_arr{source};
+
+std::vector<size_t> source_lengths(source_arr.size());
+std::transform(
+    source_arr.begin(), source_arr.end(), source_lengths.begin(),
+    [](const char* s) -> size_t { return std::string(s).length(); });
+
+cl_program program = create(cl_program, clCreateProgramWithSource, context,
+                            source_arr.size(), source_arr.data(), source_lengths.data());
+
+println(program);
+
+auto err = clBuildProgram(program, devices.size(), devices.data(), "", nullptr, nullptr);
+if(err != 0) {
+    println("clBuildProgram returned with non-zero code: ", err);
+    for(auto device : devices) {
+        println();
+        println("Build info for device ", device, ":");
+        println(request_str(clGetProgramBuildInfo, program, device, CL_PROGRAM_BUILD_LOG));
+    }
+}
+```
+
+... и ещё один указатель куда-то...
+
+Зато, если у нас не удался `build`, мы получаем человекочитаемое сообщение об
+ошибке!
+
+#cpp-code.update(
+  it => ```cpp
+  auto platforms = request(uint32_t, cl_platform_id, clGetPlatformIDs);
+  std::vector<cl_device_id> devices = request(
+      cl_uint, cl_device_id, clGetDeviceIDs, platforms[0], CL_DEVICE_TYPE_ALL
+  );
+
+  auto context = create(cl_context, clCreateContext, nullptr, devices.size(), devices.data(), nullptr, nullptr);
+  ```.text,
+)
+
+Например, попытаемся вставить пробел в середину слова `void`: ```excppapp
+const char* source = "kernel vo id add(global const int *a, "
+ "global const int *b, global int *c) {\n"
+ " *c = *a + *b;\n"
+ "}\n";
+std::vector<const char*> source_arr{source};
+
+std::vector<size_t> source_lengths(source_arr.size());
+std::transform(
+ source_arr.begin(), source_arr.end(), source_lengths.begin(),
+ [](const char* s) -> size_t { return std::string(s).length(); });
+
+cl_program program = create(cl_program, clCreateProgramWithSource, context,
+ source_arr.size(), source_arr.data(), source_lengths.data());
+
+auto err = clBuildProgram(program, devices.size(), devices.data(), "", nullptr,
+nullptr);
+if(err != 0) {
+ println("clBuildProgram returned with non-zero code: ", err);
+ for(auto device : devices) {
+ println();
+ println("Build info for device ", device, ":");
+ println(request_str(clGetProgramBuildInfo, program, device,
+CL_PROGRAM_BUILD_LOG));
+ }
+}
+```
+
+#cpp-code.update(
+  it => ```cpp
+  auto platforms = request(uint32_t, cl_platform_id, clGetPlatformIDs);
+  std::vector<cl_device_id> devices = request(
+      cl_uint, cl_device_id, clGetDeviceIDs, platforms[0], CL_DEVICE_TYPE_ALL
+  );
+
+  auto context = create(cl_context, clCreateContext, nullptr, devices.size(), devices.data(), nullptr, nullptr);
+  const char* source = "kernel void add(global const int *a, "
+                                                  "global const int *b, global int *c) {\n"
+      "    *c = *a + *b;\n"
+      "}\n";
+  std::vector<const char*> source_arr{source};
+
+  std::vector<size_t> source_lengths(source_arr.size());
+  std::transform(
+      source_arr.begin(), source_arr.end(), source_lengths.begin(),
+      [](const char* s) -> size_t { return std::string(s).length(); });
+
+  cl_program program = create(cl_program, clCreateProgramWithSource, context,
+                              source_arr.size(), source_arr.data(), source_lengths.data());
+
+  println(program);
+
+  auto err = clBuildProgram(program, devices.size(), devices.data(), "", nullptr, nullptr);
+  if(err != 0) {
+      println("clBuildProgram returned with non-zero code: ", err);
+      for(auto device : devices) {
+          println();
+          println("Build info for device ", device, ":");
+          println(request_str(clGetProgramBuildInfo, program, device, CL_PROGRAM_BUILD_LOG));
+      }
+  }
+  ```.text,
+)
+
+===== `clCreateKernel`
+--- создаёт идентификатор, через который мы сможем вызывать `kernel`. Передаём
+туда имя.
+
+```excppapp
+cl_kernel add = create(cl_kernel, clCreateKernel, program, "add");
+```
 
 Теперь мы хотим передать ему аргументы и запустить его! Проблемы? Э-э-э.........
 Указатели на память, что вы думаете, сработает? Ха. Где память? На девайсе. Мы
 её выделили? Нет. Очень жаль. Давайте выделять...
 
-=== Here we go again
+==== Here we go again
 
-- Выделяем память на девайсе: `clCreateBuffer`. Нам надо только передать размер
-  буфера, и то, как мы хотим к нему обращаться из кернела (read only, write only,
-  read-write). В данном случае, мы хотим три буфера: под `a` и под `b` ---
-  read-only, под `c` --- write-only. Ну, мы можем оба подписать read-write, но
-  лучше так --- так что-нибудь оптимизировать (не надо про протокол когерентности,
-  кэши, всё остальное думать).
+===== `clCreateBuffer`
+Выделяем память на девайсе. Нам надо только передать размер буфера, и то, как мы
+хотим к нему обращаться из кернела (read only, write only, read-write). В данном
+случае, мы хотим три буфера: под `a` и под `b` --- read-only, под `c` ---
+write-only. Ну, мы можем оба подписать read-write, но лучше так --- так
+что-нибудь оптимизировать (не надо про протокол когерентности, кэши, всё
+остальное думать).
 
-  Понятно, что доступ распространяется только на кернел, с хоста-то мы и так
-  записать/прочитать сможем.
+Понятно, что доступ распространяется только на кернел, с хоста-то мы и так
+записать/прочитать сможем.
 
-  `clCreateBuffer` возвращает `cl_mem`, это своего рода указатель, но не
-  указатель. Это хендл, арифметику с ним делать нельзя.
+`clCreateBuffer` возвращает `cl_mem`, это своего рода указатель, но не
+указатель. Это хендл, арифметику с ним делать нельзя.
 
-- А мы написали `int`... а что это? Понятное дело, что `int` на девайсе и `int` на
-  хосте могут отличаться. Ну так для этого может быть `cl_int`. На самом деле, они
-  даже фиксированы, не зависят от девайса. Так что это всегда 32 бита. Лучше, чем
-  в С! А вот `size_t` девайса мы не знаем. Точнее, можем спросить, но это будет
-  уже в рантайме и у конкретного девайса. Так что кернелам просто запрещено
-  принимать `size_t`.
+А мы написали `int`... а что это? Понятное дело, что `int` на девайсе и `int` на
+хосте могут отличаться. Ну так для этого может быть `cl_int`. На самом деле, они
+даже фиксированы, не зависят от девайса. Так что это всегда 32 бита. Лучше, чем
+в С! А вот `size_t` девайса мы не знаем. Точнее, можем спросить, но это будет
+уже в рантайме и у конкретного девайса. Так что кернелам просто запрещено
+принимать `size_t`.
 
-- Наконец, можем накормить кернел аргументами: `clSetKernelArg`, указываем туда
-  идентификатор кернела, номер аргумента, значение аргумента (оно --- как адрес +
-  количество байтов).
+```excppapp
+cl_mem aBuffer = create(cl_mem, clCreateBuffer, context, CL_MEM_READ_ONLY, 4, nullptr);
+cl_mem bBuffer = create(cl_mem, clCreateBuffer, context, CL_MEM_READ_ONLY, 4, nullptr);
+cl_mem cBuffer = create(cl_mem, clCreateBuffer, context, CL_MEM_WRITE_ONLY, 4, nullptr);
+```
 
-- В наших буферах лежит какой-то мусор, надо его наполнить.
-  `clEnqueueWriteBuffer`. Чувствуется в названии подвох.
+===== `clSetKernelArg`
+Наконец, можем накормить кернел аргументами. Указываем сюда идентификатор
+кернела, номер аргумента, значение аргумента (оно --- как адрес + количество
+байтов). Так как мы передаём "указатели", в качестве количества байтов у нас
+`size_of(cl_mem)`
 
-- `clCreateCommandQueue` --- очередь команд, чего мы хотим. Принимает контекст и
-  девайс. А ещё принимает _флажки_. Один из них полезный --- profiling info (или
-  как-то так), причём почти ничего не стоит. Рассказывает, сколько времени уходит
-  на процессы. Второй --- `out of order executionary order`. Не влезай, убьёт.
+```excppapp
+err = clSetKernelArg(add, 0, sizeof(cl_mem), &aBuffer);
+if (err != 0) throw exec_error("Can't set 0th kernel arg");
+err = clSetKernelArg(add, 1, sizeof(cl_mem), &bBuffer);
+if (err != 0) throw exec_error("Can't set 1st kernel arg");
+err = clSetKernelArg(add, 2, sizeof(cl_mem), &cBuffer);
+if (err != 0) throw exec_error("Can't set 2nd kernel arg");
+```
 
-- `clEnqueueWriteBuffer`, да. Принимает cl_mem, указатель наш (откуда брать
-  данные), флажок `blocking write` (позже). Про блокирующее чтение. Мы ставим _задание на постановку в очередь_.
-  Если мы не поставим флажок, то оно вернётся мгновенно! И ничего не дождётся.
-  Имеет смысл делать передачу данных *на* девайс не блокирующей, а *с* девайса ---
-  блокирующей. Очередь ленивая, не будет ничего исполнять, пока мы не пнём её. Ну,
-  или можно пнуть через "подождать выполнения всех функций". Или спросить "#strike[а не в омах ли измеряется сопротивление] а
-  не закончилось ли исполнение".
+===== `clEnqueueWriteBuffer`
+В наших буферах лежит какой-то мусор, надо его наполнить. Чувствуется в названии
+подвох.
+
+===== `clCreateCommandQueue`
+--- очередь команд, чего мы хотим. Принимает контекст и девайс. А ещё принимает _флажки_.
+Один из них полезный --- profiling info (или как-то так), причём почти ничего не
+стоит. Рассказывает, сколько времени уходит на процессы. Второй --- `out of
+order executionary mode`. Не влезай, убьёт.
+
+```excppapp
+auto command_queue = create(
+    cl_command_queue, clCreateCommandQueue, context, devices[0], CL_QUEUE_PROFILING_ENABLE
+);
+```
+
+===== `clEnqueueWriteBuffer`
+, да. Принимает `cl_mem`, указатель наш (откуда брать данные), флажок `blocking
+write`. Про блокирующее чтение и запись. Мы ставим _задание на постановку в очередь_.
+Если мы не поставим флажок, то оно вернётся мгновенно! И ничего не дождётся.
+Имеет смысл делать передачу данных *на* девайс не блокирующей, а *с* девайса ---
+блокирующей. Очередь ленивая, не будет ничего исполнять, пока мы не пнём её. Ну,
+или можно пнуть через "подождать выполнения всех функций". Или спросить "#strike[а не в омах ли измеряется сопротивление] а
+не закончилось ли исполнение".
 
 - Спойлер: В конце захотим `clEnqueueReadBuffer`.
 
-- `clEnqueueNDRangeKernel` --- урааа! Запуск кернела. Передаём туда, очевидно,
-  очередь и кернел. Принимает также dimensions (who? пока передаём 1); global work
-  size, причём через указатель (пока тоже 1); local work size --- смело кормим
-  null'ами, так же поступаем с event'ами.
+```excppapp
+cl_int a = 2;
+cl_int b = 3;
 
-- Наконец, делаем `clEnqueueReadBuffer`, и читаем нашу замечательную сумму двух
-  чисел. Будем на это, во всяком случае, надеяться.
+call(clEnqueueWriteBuffer, command_queue, aBuffer, false, 0, 4, &a, 0, nullptr, nullptr);
+call(clEnqueueWriteBuffer, command_queue, bBuffer, false, 0, 4, &b, 0, nullptr, nullptr);
+```
+
+===== `clEnqueueNDRangeKernel` --- урааа!
+Запуск кернела. Передаём туда, очевидно, очередь и кернел. Принимает также
+dimensions (who? пока передаём 1); global work size, причём через указатель
+(пока тоже 1); local work size --- смело кормим null'ами, так же поступаем с
+event'ами.
+
+```excppapp
+size_t global_work_size = 1;
+call(clEnqueueNDRangeKernel, command_queue, add, 1,
+            nullptr, &global_work_size, nullptr, 0, nullptr, nullptr);
+```
+
+===== `clEnqueueReadBuffer`
+Наконец, читаем нашу замечательную сумму двух чисел. Будем на это, во всяком
+случае, надеяться.
+
+```excppapp
+cl_int c = 0;
+call(clEnqueueReadBuffer, command_queue, cBuffer, true, 0, 4, &c, 0, nullptr, nullptr);
+println(c);
+
+clReleaseMemObject(aBuffer);
+clReleaseMemObject(bBuffer);
+clReleaseMemObject(cBuffer);
+clReleaseProgram(program);
+clReleaseKernel(add);
+clReleaseCommandQueue(command_queue);
+clReleaseContext(context);
+```
 
 - Замечание к окончанию: всё, что мы `create`, хорошо бы потом `release`. А то
   может быть грустно.
