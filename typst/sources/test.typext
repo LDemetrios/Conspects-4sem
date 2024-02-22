@@ -1,0 +1,66 @@
+(
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"total 8",
+                ), 
+                (    
+                    color: "output",
+                    line:"7079797 -rw-r--r-- 1 ldemetrios ldemetrios 22 Feb 21 22:44 test2.sh",
+                ), 
+                (    
+                    color: "output",
+                    line:"7079796 -rw-r--r-- 1 ldemetrios ldemetrios  8 Feb 21 22:44 test.sh",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"    PID TTY          TIME CMD",
+                ), 
+                (    
+                    color: "output",
+                    line:"    599 ?        00:00:00 systemd",
+                ), 
+                (    
+                    color: "output",
+                    line:"    600 ?        00:00:00 (sd-pam)",
+                ), 
+                (    
+                    color: "output",
+                    line:"    613 ?        00:00:02 kwalletd5",
+                ), 
+                (    
+                    color: "output",
+                    line:"    614 ?        00:00:00 startplasma-x11",
+                ), 
+                (    
+                    color: "output",
+                    line:"    624 ?        00:00:00 dbus-broker-lau",
+                ), 
+                (    
+                    color: "output",
+                    line:"    625 ?        00:00:01 dbus-broker",
+                ), 
+                (    
+                    color: "output",
+                    line:"    656 ?        00:00:07 baloo_file",
+                ), 
+                (    
+                    color: "output",
+                    line:"    660 ?        00:00:01 xdg-desktop-por",
+                ), 
+                (    
+                    color: "output",
+                    line:"    667 ?        00:00:00 xdg-document-po",
+                ),                                 
+            ),
+            code: 0
+        ),
+	),
+)

@@ -1,3 +1,0 @@
-/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug/CMakeFiles/Main.dir
-/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug/CMakeFiles/rebuild_cache.dir
