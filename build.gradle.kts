@@ -1,7 +1,7 @@
-import org.ldemetrios.typst4gradle.Typst4GradleConfigurationExtension
+import org.ldemetrios.typst4gradle.Typst4Gradle
 
-fun Project.typst4gradle(config: Typst4GradleConfigurationExtension.() -> Unit) =
-    configure<Typst4GradleConfigurationExtension>(config)
+fun Project.typst4gradle(config: Typst4Gradle.() -> Unit) =
+    configure<Typst4Gradle>(config)
 
 plugins {
     kotlin("jvm") version "1.9.21"
@@ -11,8 +11,6 @@ plugins {
 
 group = "org.ldemetrios"
 version = "1.0-SNAPSHOT"
-
-
 
 buildscript {
     repositories {

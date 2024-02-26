@@ -16,7 +16,7 @@
 задепрекейченные полезные функции. Придётся задефайнить версию. Достаточно
 хедера `<CL/cl.h>`. Можно --- `<CL/opencl.h>`
 
-Чтобы слиноваться, надо где-то взять либы. Под линуксом --- некий магический
+Чтобы слинковаться, надо где-то взять либы. Под линуксом --- некий магический
 package. Под виндоусом --- откуда-то взять. На официальном сайте Кроноса есть.
 Обратите внимание на битность!
 
@@ -55,15 +55,15 @@ package. Под виндоусом --- откуда-то взять. На офи
     text(fill: red, `Error preparing CMake`)
     [\ ]
     colored-output(result.at(0), foreground, red)
-  } else if result.at(1).at("returnCode", default: -1) != 0 {
+  } else if result.at(1).at("code", default: -1) != 0 {
     text(fill: red, `Compilation error`)
     [\ ]
     colored-output(result.at(1), foreground, red)
   } else {
     colored-output(result.at(2), foreground, red)
-    if (result.at(2).at("returnCode", default: -1) > 0) {
+    if (result.at(2).at("code", default: -1) > 0) {
       text(fill: red)[
-        #raw("Exited with " + str(result.at(1).returnCode))\
+        #raw("Exited with " + str(result.at(1).code))\
         // #raw(result.at(2).at("error", default: ""))\
       ]
     }
@@ -75,7 +75,7 @@ package. Под виндоусом --- откуда-то взять. На офи
     // raw(prelude + "int main() {\n" + body.text + "\n}\n")
     // [\ \ ]
     cpp-code.display(body =>{
-      // raw(body)
+      // raw(prelude + "\n\nint main() {\n" + body + "\n}\n")
       exec((
         "main.cpp": prelude + "\n\nint main() {\n" + body + "\n}\n",
         "CMakeLists.txt": cl-cmake,
