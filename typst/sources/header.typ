@@ -49,42 +49,6 @@
   ]
 }
 
-#let full-externation-log(files, commands, foreground: black, error: rgb("#770000")) = {
-  for file in files.keys() {
-    labeled-box(file, raw(files.at(file), lang: file.split(".").last()))
-  }
-  exec(
-    files,
-    commands,
-    (result) => {
-      let x = for i in range(calc.min(commands.len(), result.len())) {
-        ({
-          ` $ `
-
-          let command = commands.at(i).map(arg => {
-            if arg.contains(regex("[^a-zA-Z0-9\-/.]")) {
-              "'" + arg.replace("'", "'\''") + "'"
-            } else { arg }
-          })
-          raw(command.join(" "), lang: "bash")
-
-          [\ ]
-
-          for line in result.at(i).output {
-            let clr = if (line.color == "output") { foreground } else { error }
-            text(fill: clr, raw(line.line))
-            [\ ]
-          }
-
-          `Process finished with exit code `
-          raw(str(result.at(i).code))
-        },)
-      }
-      x.join([\ #line(length: 50%, stroke: .25pt + maroon) ])
-    },
-  )
-}
-
 #let dx = $upright(d)x$
 #let dy = $upright(d)y$
 #let dz = $upright(d)z$
@@ -150,31 +114,68 @@
   }
 }
 
-#full-externation-log(
-  ("test.sh": "ls -Ali\n", "test2.sh": "ps | head -n 10\n"),
-  (("ls", "-Ali"), ("bash", "test2.sh")),
-)
+#let offset(off, ..args, body) = pad(left: 2em, ..args, body)
 
-#let shraw(body, ..args) = pad(left: 2em, y: .5em, raw(align: left, to-code(body), ..args))
+#let codefragmentraw(start:1, fragment) = {
+  sourcecode(frame: it=>it, numbers-start: start, fragment)
+}
 
-//#raw()
+#let codefragment(start: 1, fragment, lang: none) ={
+  codefragmentraw(start:start, raw(fragment, lang: lang))
+}
 
+#let codeblock(body) = offset(2em, y: .5em, codefragmentraw(body))
 
-#let extract(file, what)  = {
+#let full-externation-log(files, commands, foreground: black, error: rgb("#770000")) = {
+  for file in files.keys() {
+    labeled-box(file, codefragment(files.at(file), lang: file.split(".").last()))
+  }
+  exec(
+    files,
+    commands,
+    (result) => {
+      let x = for i in range(calc.min(commands.len(), result.len())) {
+        ({
+          ` $ `
+
+          let command = commands.at(i).map(arg => {
+            if arg.contains(regex("[^a-zA-Z0-9\-/.]")) {
+              "'" + arg.replace("'", "'\''") + "'"
+            } else { arg }
+          })
+          raw(command.join(" "), lang: "bash")
+
+          [\ ]
+
+          for line in result.at(i).output {
+            let clr = if (line.color == "output") { foreground } else { error }
+            text(fill: clr, raw(line.line))
+            [\ ]
+          }
+
+          `Process finished with exit code `
+          raw(str(result.at(i).code))
+        },)
+      }
+      x.join([\ #line(length: 50%, stroke: .25pt + maroon) ])
+    },
+  )
+}
+
+#let extract(file, what) = {
   let ext = file.split(".").last()
   let file = read(file)
   let fragments = search-fragments(what, file)
-  assert(fragments.len() == 1)
-let  fragment = fragments.at(0)
+  // assert(fragments.len() == 1)
+  let fragment = fragments.at(0)
 
   let pos = file.position(fragment)
   assert(pos != 0)
 
   let lines-before = file.slice(0, pos).matches(regex("\r\n|\r|\n")).len()
-  
-  sourcecode(frame: it=>it, numbers-start:lines-before + 1, raw(fragment, lang:ext))
-}
 
+  codefragment(start: lines-before + 1, fragment, lang: ext)
+}
 
 #let general-style = (body) => [
   #show : theme-show-rule
@@ -191,7 +192,11 @@ let  fragment = fragments.at(0)
 
   #set par(justify: true)
 
+  // #show raw : (it) => {
+  //   set par(justify:false)
+  //   it
+  // }
+
   #body
 ]
-
 

@@ -64,7 +64,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.4s)",
+                    line:"-- Configuring done (0.8s)",
                 ), 
                 (    
                     color: "output",
@@ -72,7 +72,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
                 ),                                 
             ),
             code: 0
@@ -97,7 +97,7 @@
                 ), 
                 (    
                     color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
                 ), 
                 (    
                     color: "error",
@@ -110,1485 +110,71 @@
                 (    
                     color: "error",
                     line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
                 ),                                 
             ),
             code: 0
         ),
 	       (
            output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
                 (    
                     color: "output",
                     line:"[1 2 3]",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"[0x7f391720ef90]",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"[0x7f1ff040ef90]",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"0x7f1ff040ef90",
-                ), 
-                (    
-                    color: "output",
-                    line:"AMD Accelerated Parallel Processing ",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"[0x7fe408521f90]",
-                ), 
-                (    
-                    color: "output",
-                    line:"",
-                ), 
-                (    
-                    color: "output",
-                    line:"0x7fe408521f90",
-                ), 
-                (    
-                    color: "output",
-                    line:"Profile:               FULL_PROFILE ",
-                ), 
-                (    
-                    color: "output",
-                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
-                ), 
-                (    
-                    color: "output",
-                    line:"Name:                  AMD Accelerated Parallel Processing ",
-                ), 
-                (    
-                    color: "output",
-                    line:"Vendor:                Advanced Micro Devices, Inc. ",
-                ), 
-                (    
-                    color: "output",
-                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
-                ), 
-                (    
-                    color: "output",
-                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"For platform 0x7f2893a0ef90",
-                ), 
-                (    
-                    color: "output",
-                    line:"CPU:         []",
-                ), 
-                (    
-                    color: "output",
-                    line:"GPU:         [0x55e472984430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ACCELERATOR: []",
-                ), 
-                (    
-                    color: "output",
-                    line:"DEFAULT:     [0x55e472984430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ALL:         [0x55e472984430]",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.3s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"For platform 0x7fb741921f90",
-                ), 
-                (    
-                    color: "output",
-                    line:"CPU:         []",
-                ), 
-                (    
-                    color: "output",
-                    line:"GPU:         [0x559598e43430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ACCELERATOR: []",
-                ), 
-                (    
-                    color: "output",
-                    line:"DEFAULT:     [0x559598e43430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ALL:         [0x559598e43430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"For platform 0x7fa8a2d1cf90",
-                ), 
-                (    
-                    color: "output",
-                    line:"CPU:         []",
-                ), 
-                (    
-                    color: "output",
-                    line:"GPU:         [0x5639e8680430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ACCELERATOR: []",
-                ), 
-                (    
-                    color: "output",
-                    line:"DEFAULT:     [0x5639e8680430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"ALL:         [0x5639e8680430]",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"Error code: 0",
-                ), 
-                (    
-                    color: "output",
-                    line:"Context: 0x5639e86e1550",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.3s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"0x564a24283550",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"0x5640f88dd550",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"0x5640f88dc630",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.4s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"clBuildProgram returned with non-zero code: -11",
-                ), 
-                (    
-                    color: "output",
-                    line:"",
-                ), 
-                (    
-                    color: "output",
-                    line:"Build info for device 0x5649ce9aa430:",
-                ), 
-                (    
-                    color: "output",
-                    line:"/tmp/comgr-a43be1/input/CompileSource:1:8: error: unknown type name 'vo'",
-                ), 
-                (    
-                    color: "output",
-                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
-                ), 
-                (    
-                    color: "output",
-                    line:"       ^",
-                ), 
-                (    
-                    color: "output",
-                    line:"/tmp/comgr-a43be1/input/CompileSource:1:1: error: 'kernel' attribute only applies to functions",
-                ), 
-                (    
-                    color: "output",
-                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
-                ), 
-                (    
-                    color: "output",
-                    line:"^",
-                ), 
-                (    
-                    color: "output",
-                    line:"/tmp/comgr-a43be1/input/CompileSource:1:13: error: expected ';' after top level declarator",
-                ), 
-                (    
-                    color: "output",
-                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
-                ), 
-                (    
-                    color: "output",
-                    line:"            ^",
-                ), 
-                (    
-                    color: "output",
-                    line:"            ;",
-                ), 
-                (    
-                    color: "output",
-                    line:"3 errors generated.",
-                ), 
-                (    
-                    color: "output",
-                    line:"Error: Failed to compile source (from CL or HIP source to LLVM IR).",
-                ), 
-                (    
-                    color: "output",
-                    line:" ",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.5s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"0x5581d5e0e630",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
                 ),                                 
             ),
             code: 0
@@ -1667,7 +253,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
                 ),                                 
             ),
             code: 0
@@ -1692,277 +278,7 @@
                 ), 
                 (    
                     color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"0x55683bbb3630",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.5s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
-                ), 
-                (    
-                    color: "error",
-                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
-                ), 
-                (    
-                    color: "error",
-                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
-                ), 
-                (    
-                    color: "error",
-                    line:"      |                                                                                                        ^",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "output",
-                    line:"0x55bf1838c630",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ), 
-                (    
-                    color: "output",
-                    line:"//////////",
-                ),                                 
-            ),
-            code: 0
-        ),
-	), 
-	(
-       (
-           output: (
-                (    
-                    color: "output",
-                    line:"-- The C compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- The CXX compiler identification is GNU 13.2.1",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting C compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compiler ABI info - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Detecting CXX compile features - done",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Looking for CL_VERSION_3_0 - found",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Configuring done (0.5s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Generating done (0.0s)",
-                ), 
-                (    
-                    color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
-                ),                                 
-            ),
-            code: 0
-        ),
-	       (
-           output: (
-                (    
-                    color: "error",
-                    line:"In file included from /usr/include/CL/cl.h:20,",
-                ), 
-                (    
-                    color: "output",
-                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Linking CXX executable Main",
-                ), 
-                (    
-                    color: "output",
-                    line:"[100%] Built target Main",
-                ), 
-                (    
-                    color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
                 ), 
                 (    
                     color: "error",
@@ -1978,31 +294,31 @@
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp: In function âint main()â:",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:139:23: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
                 ), 
                 (    
                     color: "error",
-                    line:"  139 |     cl_command_queue, clCreateCommandQueue, context, devices[0], CL_QUEUE_PROFILING_ENABLE",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                       ^~~~~~~~~~~~~~~~~~~~",
+                    line:"      |               ^",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:87:44: note: in definition of macro âcreateâ",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
                 ), 
                 (    
                     color: "error",
-                    line:"   87 | #define create(T, func, ...) cl_create<T>(&func, generate_error_message(func __VA_OPT__(,) __VA_ARGS__ ) __VA_OPT__(,) __VA_ARGS__)",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                                            ^~~~",
+                    line:"      |     ^~~~~~",
                 ), 
                 (    
                     color: "error",
@@ -2023,23 +339,23 @@
            output: (
                 (    
                     color: "output",
-                    line:"0x555fe74f6630",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"[0x7fae3bf1cf90 0x55d6574e7f60]",
                 ),                                 
             ),
             code: 0
@@ -2110,7 +426,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.4s)",
+                    line:"-- Configuring done (0.6s)",
                 ), 
                 (    
                     color: "output",
@@ -2118,7 +434,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
                 ),                                 
             ),
             code: 0
@@ -2143,7 +459,7 @@
                 ), 
                 (    
                     color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
                 ), 
                 (    
                     color: "error",
@@ -2159,31 +475,31 @@
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp: In function âint main()â:",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:139:23: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
                 ), 
                 (    
                     color: "error",
-                    line:"  139 |     cl_command_queue, clCreateCommandQueue, context, devices[0], CL_QUEUE_PROFILING_ENABLE",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                       ^~~~~~~~~~~~~~~~~~~~",
+                    line:"      |               ^",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:87:44: note: in definition of macro âcreateâ",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
                 ), 
                 (    
                     color: "error",
-                    line:"   87 | #define create(T, func, ...) cl_create<T>(&func, generate_error_message(func __VA_OPT__(,) __VA_ARGS__ ) __VA_OPT__(,) __VA_ARGS__)",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                                            ^~~~",
+                    line:"      |     ^~~~~~",
                 ), 
                 (    
                     color: "error",
@@ -2204,27 +520,55 @@
            output: (
                 (    
                     color: "output",
-                    line:"0x55c888e3f630",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"[0x7ff5d051cf90 0x5644694e1f60]",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7ff5d051cf90",
+                ), 
+                (    
+                    color: "output",
+                    line:"AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x5644694e1f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Intel(R) CPU Runtime for OpenCL(TM) Applications ",
                 ),                                 
             ),
             code: 0
@@ -2295,7 +639,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.4s)",
+                    line:"-- Configuring done (0.6s)",
                 ), 
                 (    
                     color: "output",
@@ -2303,7 +647,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/cmake-build-debug",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
                 ),                                 
             ),
             code: 0
@@ -2328,7 +672,7 @@
                 ), 
                 (    
                     color: "error",
-                    line:"                 from /home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:5:",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
                 ), 
                 (    
                     color: "error",
@@ -2344,31 +688,31 @@
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp: In function âint main()â:",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:139:23: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
                 ), 
                 (    
                     color: "error",
-                    line:"  139 |     cl_command_queue, clCreateCommandQueue, context, devices[0], CL_QUEUE_PROFILING_ENABLE",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                       ^~~~~~~~~~~~~~~~~~~~",
+                    line:"      |               ^",
                 ), 
                 (    
                     color: "error",
-                    line:"/home/ldemetrios/Workspace/Conspects-4sem/__tmp__/main.cpp:87:44: note: in definition of macro âcreateâ",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
                 ), 
                 (    
                     color: "error",
-                    line:"   87 | #define create(T, func, ...) cl_create<T>(&func, generate_error_message(func __VA_OPT__(,) __VA_ARGS__ ) __VA_OPT__(,) __VA_ARGS__)",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
                 ), 
                 (    
                     color: "error",
-                    line:"      |                                            ^~~~",
+                    line:"      |     ^~~~~~",
                 ), 
                 (    
                     color: "error",
@@ -2389,31 +733,2017 @@
            output: (
                 (    
                     color: "output",
-                    line:"0x557478bd5630",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"//////////////",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"0x7f1e2820af90",
                 ), 
                 (    
                     color: "output",
-                    line:"//////////",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x55b0a2e4df60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7f7345a0af90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x555aa9367f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"For platform 0x7f7345a0af90",
+                ), 
+                (    
+                    color: "output",
+                    line:"CPU:         []",
+                ), 
+                (    
+                    color: "output",
+                    line:"GPU:         [0x555aa92e5d50]",
+                ), 
+                (    
+                    color: "output",
+                    line:"ACCELERATOR: []",
+                ), 
+                (    
+                    color: "output",
+                    line:"DEFAULT:     [0x555aa92e5d50]",
+                ), 
+                (    
+                    color: "output",
+                    line:"ALL:         [0x555aa92e5d50]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"For platform 0x555aa9367f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"CPU:         [0x555aa92e4cb8]",
+                ), 
+                (    
+                    color: "output",
+                    line:"GPU:         []",
+                ), 
+                (    
+                    color: "output",
+                    line:"ACCELERATOR: []",
+                ), 
+                (    
+                    color: "output",
+                    line:"DEFAULT:     [0x555aa92e4cb8]",
+                ), 
+                (    
+                    color: "output",
+                    line:"ALL:         [0x555aa92e4cb8]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7fac72112f90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x563dcbb17f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7f51e2e0af90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x5597b2dd0f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x5597b2de56f8",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7f13185e5f90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x562d30e54f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x562d30e696f8",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x562d31117ec8",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7f087b51cf90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x55bb7f1b2f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x55bb7f1c76f8",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x55bb7f4752a8",
+                ), 
+                (    
+                    color: "output",
+                    line:"clBuildProgram returned with non-zero code: -11",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"Build info for device 0x55bb7f12fcb8:",
+                ), 
+                (    
+                    color: "output",
+                    line:"Compilation started",
+                ), 
+                (    
+                    color: "output",
+                    line:"1:1:8: error: unknown type name 'vo'",
+                ), 
+                (    
+                    color: "output",
+                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
+                ), 
+                (    
+                    color: "output",
+                    line:"       ^",
+                ), 
+                (    
+                    color: "output",
+                    line:"1:1:1: error: 'kernel' attribute only applies to functions",
+                ), 
+                (    
+                    color: "output",
+                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
+                ), 
+                (    
+                    color: "output",
+                    line:"^",
+                ), 
+                (    
+                    color: "output",
+                    line:"1:1:13: error: expected ';' after top level declarator",
+                ), 
+                (    
+                    color: "output",
+                    line:"kernel vo id add(global const int *a, global const int *b, global int *c) {",
+                ), 
+                (    
+                    color: "output",
+                    line:"            ^",
+                ), 
+                (    
+                    color: "output",
+                    line:"            ;",
+                ), 
+                (    
+                    color: "output",
+                    line:"Compilation failed",
+                ), 
+                (    
+                    color: "output",
+                    line:" ",
+                ),                                 
+            ),
+            code: 0
+        ),
+	), 
+	(
+       (
+           output: (
+                (    
+                    color: "output",
+                    line:"-- The C compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- The CXX compiler identification is GNU 13.2.1",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working C compiler: /usr/bin/cc - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting C compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compiler ABI info - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Check for working CXX compiler: /usr/bin/c++ - skipped",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Detecting CXX compile features - done",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Looking for CL_VERSION_3_0 - found",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Found OpenCL: /usr/lib/libOpenCL.so (found version \"3.0\") ",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Configuring done (0.6s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Generating done (0.0s)",
+                ), 
+                (    
+                    color: "output",
+                    line:"-- Build files have been written to: /home/ldemetrios/Workspace/Conspects4sem/__tmp__/cmake-build-debug",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "error",
+                    line:"In file included from /usr/include/CL/cl.h:20,",
+                ), 
+                (    
+                    color: "output",
+                    line:"[ 50%] Building CXX object CMakeFiles/Main.dir/main.cpp.o",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Linking CXX executable Main",
+                ), 
+                (    
+                    color: "output",
+                    line:"[100%] Built target Main",
+                ), 
+                (    
+                    color: "error",
+                    line:"                 from /home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:5:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl_version.h:22:104: note: â#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)â",
+                ), 
+                (    
+                    color: "error",
+                    line:"   22 | #pragma message(\"cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)\")",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |                                                                                                        ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp: In function â_cl_command_queue* wCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties)â:",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:83:15: warning: â_cl_command_queue* clCreateCommandQueue(cl_context, cl_device_id, cl_command_queue_properties, cl_int*)â is deprecated [-Wdeprecated-declarations]",
+                ), 
+                (    
+                    color: "error",
+                    line:"   83 |     T t = Func(__VA_ARGS__ __VA_OPT__(,) & err);                                 \\",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |               ^",
+                ), 
+                (    
+                    color: "error",
+                    line:"/home/ldemetrios/Workspace/Conspects4sem/__tmp__/main.cpp:159:5: note: in expansion of macro âCREATEâ",
+                ), 
+                (    
+                    color: "error",
+                    line:"  159 |     CREATE(cl_command_queue, clCreateCommandQueue, context, device, properties);",
+                ), 
+                (    
+                    color: "error",
+                    line:"      |     ^~~~~~",
+                ), 
+                (    
+                    color: "error",
+                    line:"/usr/include/CL/cl.h:1920:1: note: declared here",
+                ), 
+                (    
+                    color: "error",
+                    line:" 1920 | clCreateCommandQueue(cl_context                     context,",
+                ), 
+                (    
+                    color: "error",
+                    line:"      | ^~~~~~~~~~~~~~~~~~~~",
+                ),                                 
+            ),
+            code: 0
+        ),
+	       (
+           output: (
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x7efea560af90",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 AMD-APP (3602.0) ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  AMD Accelerated Parallel Processing ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Advanced Micro Devices, Inc. ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_amd_event_callback  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x555851133f60",
+                ), 
+                (    
+                    color: "output",
+                    line:"Profile:               FULL_PROFILE ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Version:               OpenCL 2.1 LINUX ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Name:                  Intel(R) CPU Runtime for OpenCL(TM) Applications ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Vendor:                Intel(R) Corporation ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Extensions:            cl_khr_icd cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_depth_images cl_khr_3d_image_writes cl_intel_exec_by_local_thread cl_khr_spir cl_khr_fp64 cl_khr_image2d_from_buffer cl_intel_vec_len_hint  ",
+                ), 
+                (    
+                    color: "output",
+                    line:"Host Timer Resolution: [1 0 0 0 0 0 0 0]",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x5558511486f8",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"0x5558513f6ec8",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"",
+                ), 
+                (    
+                    color: "output",
+                    line:"//////////////",
+                ), 
+                (    
+                    color: "output",
+                    line:"5",
                 ),                                 
             ),
             code: 0

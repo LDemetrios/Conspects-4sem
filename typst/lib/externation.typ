@@ -115,8 +115,8 @@
 #do-not-render()
 
 #let colored-output(entry, out, err) = {
-  let output = entry.at("output", default:())
-  for line in output {
+  //let output = entry.at("output", default:())
+  for line in entry {
     let clr = if line.color == "output" { out } else { err }
     text(fill:clr, raw(line.line))
     [\ ]
