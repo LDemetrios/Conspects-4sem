@@ -8,11 +8,11 @@
                 ), 
                 (    
                     color: "output",
-                    line:"6293735 -rw-r--r-- 1 ldemetrios ldemetrios 22 Feb 28 00:04 test2.sh",
+                    line:"19692948 -rw-r--r-- 1 ldemetrios ldemetrios 22 mar  5 01:27 test2.sh",
                 ), 
                 (    
                     color: "output",
-                    line:"6293734 -rw-r--r-- 1 ldemetrios ldemetrios  8 Feb 28 00:04 test.sh",
+                    line:"19692947 -rw-r--r-- 1 ldemetrios ldemetrios  8 mar  5 01:27 test.sh",
                 ),                                 
             ),
             code: 0
@@ -25,39 +25,39 @@
                 ), 
                 (    
                     color: "output",
-                    line:"    626 ?        00:00:00 systemd",
+                    line:"    702 ?        00:00:00 systemd",
                 ), 
                 (    
                     color: "output",
-                    line:"    628 ?        00:00:00 (sd-pam)",
+                    line:"    704 ?        00:00:00 (sd-pam)",
                 ), 
                 (    
                     color: "output",
-                    line:"    641 ?        00:00:00 kwalletd5",
+                    line:"    715 ?        00:00:00 startplasma-x11",
                 ), 
                 (    
                     color: "output",
-                    line:"    642 ?        00:00:00 startplasma-x11",
+                    line:"    726 ?        00:00:00 dbus-broker-lau",
                 ), 
                 (    
                     color: "output",
-                    line:"    652 ?        00:00:00 dbus-broker-lau",
+                    line:"    727 ?        00:00:00 dbus-broker",
                 ), 
                 (    
                     color: "output",
-                    line:"    653 ?        00:00:00 dbus-broker",
+                    line:"    756 ?        00:00:02 baloo_file",
                 ), 
                 (    
                     color: "output",
-                    line:"    681 ?        00:00:00 baloo_file",
+                    line:"    760 ?        00:00:00 xdg-desktop-por",
                 ), 
                 (    
                     color: "output",
-                    line:"    685 ?        00:00:00 xdg-desktop-por",
+                    line:"    768 ?        00:00:00 xdg-document-po",
                 ), 
                 (    
                     color: "output",
-                    line:"    695 ?        00:00:00 xdg-document-po",
+                    line:"    775 ?        00:00:00 xdg-permission-",
                 ),                                 
             ),
             code: 0

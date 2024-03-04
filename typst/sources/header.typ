@@ -116,46 +116,57 @@
 
 #let offset(off, ..args, body) = pad(left: 2em, ..args, body)
 
-#let codefragmentraw(start:1, fragment) = {
+#let codefragmentraw(start: 1, fragment) = {
   sourcecode(frame: it=>it, numbers-start: start, fragment)
 }
 
 #let codefragment(start: 1, fragment, lang: none) ={
-  codefragmentraw(start:start, raw(fragment, lang: lang))
+  codefragmentraw(start: start, raw(fragment, lang: lang))
 }
 
 #let codeblock(body) = offset(2em, y: .5em, codefragmentraw(body))
 
-#let full-externation-log(files, commands, foreground: black, error: rgb("#770000")) = {
+#let full-externation-log(
+  files,
+  commands,
+  foreground: black,
+  error: rgb("#770000"),
+  hide-files: (),
+  hide-commands: (),
+) = {
   for file in files.keys() {
-    labeled-box(file, codefragment(files.at(file), lang: file.split(".").last()))
+    if not hide-files.contains(file) {
+      labeled-box(file, codefragment(files.at(file), lang: file.split(".").last()))
+    }
   }
   exec(
     files,
     commands,
     (result) => {
       let x = for i in range(calc.min(commands.len(), result.len())) {
-        ({
-          ` $ `
+        if not hide-commands.contains(i) {
+          ({
+            ` $ `
 
-          let command = commands.at(i).map(arg => {
-            if arg.contains(regex("[^a-zA-Z0-9\-/.]")) {
-              "'" + arg.replace("'", "'\''") + "'"
-            } else { arg }
-          })
-          raw(command.join(" "), lang: "bash")
+            let command = commands.at(i).map(arg => {
+              if arg.contains(regex("[^a-zA-Z0-9\-/.]")) {
+                "'" + arg.replace("'", "'\''") + "'"
+              } else { arg }
+            })
+            raw(command.join(" "), lang: "bash")
 
-          [\ ]
-
-          for line in result.at(i).output {
-            let clr = if (line.color == "output") { foreground } else { error }
-            text(fill: clr, raw(line.line))
             [\ ]
-          }
 
-          `Process finished with exit code `
-          raw(str(result.at(i).code))
-        },)
+            for line in result.at(i).output {
+              let clr = if (line.color == "output") { foreground } else { error }
+              text(fill: clr, raw(line.line))
+              [\ ]
+            }
+
+            `Process finished with exit code `
+            raw(str(result.at(i).code))
+          },)
+        }
       }
       x.join([\ #line(length: 50%, stroke: .25pt + maroon) ])
     },
@@ -192,8 +203,8 @@
 
   #set par(justify: true)
 
-  #set raw(align:left)
-  
+  #set raw(align: left)
+
   #body
 ]
 

@@ -28,13 +28,13 @@ package. Под виндоусом --- откуда-то взять. На офи
 
 В пределах конспекта код запускается с помощью `cmake`:
 
-#let cl-cmake = read("aux/gpu-cmake.txt")
+#let cl-cmake = read("gpu/gpu-cmake.txt")
 
 #codeblock(raw(cl-cmake, lang: "cmake"))
 
 // Setup evaluator
 
-#let cppgit = (prelude: read("aux/gpu-prelude.cpp"), code: "", lines: 0)
+#let cppgit = (prelude: read("gpu/draft-prelude.cpp"), code: "", lines: 0)
 
 #let prelude_set(branch, new-prelude) = {
   // branch copies here
@@ -125,7 +125,7 @@ package. Под виндоусом --- откуда-то взять. На офи
   let code = branch-full-code(branch)
   exec(
     ("main.cpp": code, "CMakeLists.txt": cl-cmake),
-    eval(read("aux/cmake-build-command.txt")),
+    eval(read("gpu/cmake-build-command.txt")),
     (result) => {
       let data = parse-cmake-result(result, show-results: show-results);
       if data != none {
@@ -241,7 +241,7 @@ println(platforms);
 ошибках...
 
 #text(size: .8em)[
-  #extract("/typst/sources/aux/gpu-prelude.cpp", "wmacros")
+  #extract("/typst/sources/gpu/draft-prelude.cpp", "wmacros")
 ]
 
 Выколите мне глаза. Но, зато теперь относительно понятно, что мы делаем:
@@ -439,7 +439,7 @@ build-options --- не должен быть null! Некоторые платф
 
 Здесь функция-обёртка поосмысленней:
 
-#extract("/typst/sources/aux/gpu-prelude.cpp", "buildmacro")
+#extract("/typst/sources/gpu/draft-prelude.cpp", "buildmacro")
 
 ==== Наконец, девайс-код
 
@@ -659,8 +659,6 @@ println(c);
 - А если что-нибудь криво работает на девайсе... Ну, упадёт видео-драйвер. Винда
   его обычно поднимает через пару секунд, остальные --- ... поэкспериментируйте!
 
-#TODO("Полный код")
-
 === Наконец, занимаемся чем-то полезным.
 
 Хотим посчитать сумму элементов массива.
@@ -672,7 +670,7 @@ println(c);
   много. Quda-псевдо-ядра это что-то в духе конвееров (умеет считать, но не имеет
   логики управления). Конвееры объединяются в ядра, как раз. И вот эти work-item'ы
   --- запускаются на конвейерах. И они исполняют одну и ту же команду
-  одновременно. Если у нас ситуация, что есть if, то сначала все исполняют одну
+  одновременно. Если у насd ситуация, что есть if, то сначала все исполняют одну
   ветку (часть тредов ждёт), потом наоборот. Хотя если все одновременно в одну
   ветку зашли, то ждать не будут. Особенно интересно про циклы будет, конечно...
 
@@ -725,5 +723,22 @@ println(c);
 номер по х, номер по y, номер по z. Просто для удобства нумерации, чтобы не надо
 было в случае чего делить/умножать/и так далее. Так вот 0 --- это номер
 координаты.
+
+#let read-folder(dir, ..files) = {
+  let res = (:)
+  for f in files.pos() {
+    res.insert(f, read(dir + "/" + f))
+  }
+  res
+}
+
+#full-externation-log(
+  read-folder("/typst/sources/gpu/aplusb", "CMakeLists.txt", "main.cpp", "program.cl", "utils.h", "utils.cpp", "wrappers.h", "wrappers.cpp"),
+  eval(read("gpu/cmake-build-command.txt")),
+  foreground: foreground,
+  error: rgb("#770000"),
+  hide-files: (),
+  hide-commands: (),
+)
 
 #close-exec()
