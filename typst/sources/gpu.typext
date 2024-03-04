@@ -64,7 +64,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.8s)",
+                    line:"-- Configuring done (0.6s)",
                 ), 
                 (    
                     color: "output",
@@ -245,7 +245,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.6s)",
+                    line:"-- Configuring done (0.5s)",
                 ), 
                 (    
                     color: "output",
@@ -355,7 +355,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"[0x7fae3bf1cf90 0x55d6574e7f60]",
+                    line:"[0x7efce42f7f90 0x55b787094a70]",
                 ),                                 
             ),
             code: 0
@@ -536,7 +536,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"[0x7ff5d051cf90 0x5644694e1f60]",
+                    line:"[0x7f3415e0af90 0x5569782dfa70]",
                 ), 
                 (    
                     color: "output",
@@ -556,7 +556,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7ff5d051cf90",
+                    line:"0x7f3415e0af90",
                 ), 
                 (    
                     color: "output",
@@ -564,7 +564,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x5644694e1f60",
+                    line:"0x5569782dfa70",
                 ), 
                 (    
                     color: "output",
@@ -753,7 +753,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7f1e2820af90",
+                    line:"0x7fa59f11cf90",
                 ), 
                 (    
                     color: "output",
@@ -785,7 +785,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x55b0a2e4df60",
+                    line:"0x55b8d89c2a70",
                 ), 
                 (    
                     color: "output",
@@ -994,7 +994,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7f7345a0af90",
+                    line:"0x7fbf2be0af90",
                 ), 
                 (    
                     color: "output",
@@ -1026,7 +1026,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x555aa9367f60",
+                    line:"0x557e7301ba70",
                 ), 
                 (    
                     color: "output",
@@ -1070,7 +1070,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"For platform 0x7f7345a0af90",
+                    line:"For platform 0x7fbf2be0af90",
                 ), 
                 (    
                     color: "output",
@@ -1078,7 +1078,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"GPU:         [0x555aa92e5d50]",
+                    line:"GPU:         [0x557e72f96d60]",
                 ), 
                 (    
                     color: "output",
@@ -1086,11 +1086,11 @@
                 ), 
                 (    
                     color: "output",
-                    line:"DEFAULT:     [0x555aa92e5d50]",
+                    line:"DEFAULT:     [0x557e72f96d60]",
                 ), 
                 (    
                     color: "output",
-                    line:"ALL:         [0x555aa92e5d50]",
+                    line:"ALL:         [0x557e72f96d60]",
                 ), 
                 (    
                     color: "output",
@@ -1098,11 +1098,11 @@
                 ), 
                 (    
                     color: "output",
-                    line:"For platform 0x555aa9367f60",
+                    line:"For platform 0x557e7301ba70",
                 ), 
                 (    
                     color: "output",
-                    line:"CPU:         [0x555aa92e4cb8]",
+                    line:"CPU:         [0x557e72f95cc8]",
                 ), 
                 (    
                     color: "output",
@@ -1114,11 +1114,11 @@
                 ), 
                 (    
                     color: "output",
-                    line:"DEFAULT:     [0x555aa92e4cb8]",
+                    line:"DEFAULT:     [0x557e72f95cc8]",
                 ), 
                 (    
                     color: "output",
-                    line:"ALL:         [0x555aa92e4cb8]",
+                    line:"ALL:         [0x557e72f95cc8]",
                 ), 
                 (    
                     color: "output",
@@ -1193,7 +1193,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"-- Configuring done (0.6s)",
+                    line:"-- Configuring done (0.5s)",
                 ), 
                 (    
                     color: "output",
@@ -1307,7 +1307,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7fac72112f90",
+                    line:"0x7f6794be5f90",
                 ), 
                 (    
                     color: "output",
@@ -1339,7 +1339,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x563dcbb17f60",
+                    line:"0x5581bbcd2a70",
                 ), 
                 (    
                     color: "output",
@@ -1564,7 +1564,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7f51e2e0af90",
+                    line:"0x7f4a1851cf90",
                 ), 
                 (    
                     color: "output",
@@ -1596,7 +1596,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x5597b2dd0f60",
+                    line:"0x56194a8b4a70",
                 ), 
                 (    
                     color: "output",
@@ -1656,7 +1656,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x5597b2de56f8",
+                    line:"0x56194a8c6118",
                 ),                                 
             ),
             code: 0
@@ -1841,7 +1841,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7f13185e5f90",
+                    line:"0x7f59cd3e5f90",
                 ), 
                 (    
                     color: "output",
@@ -1873,7 +1873,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x562d30e54f60",
+                    line:"0x55ae88a99a70",
                 ), 
                 (    
                     color: "output",
@@ -1933,7 +1933,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x562d30e696f8",
+                    line:"0x55ae88aab118",
                 ), 
                 (    
                     color: "output",
@@ -1953,7 +1953,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x562d31117ec8",
+                    line:"0x55ae88d5a4e8",
                 ),                                 
             ),
             code: 0
@@ -2138,7 +2138,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7f087b51cf90",
+                    line:"0x7fbd4460af90",
                 ), 
                 (    
                     color: "output",
@@ -2170,7 +2170,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x55bb7f1b2f60",
+                    line:"0x55ec00175a70",
                 ), 
                 (    
                     color: "output",
@@ -2230,7 +2230,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x55bb7f1c76f8",
+                    line:"0x55ec00187118",
                 ), 
                 (    
                     color: "output",
@@ -2250,7 +2250,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x55bb7f4752a8",
+                    line:"0x55ec004364e8",
                 ), 
                 (    
                     color: "output",
@@ -2262,7 +2262,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"Build info for device 0x55bb7f12fcb8:",
+                    line:"Build info for device 0x55ec000efcc8:",
                 ), 
                 (    
                     color: "output",
@@ -2499,7 +2499,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x7efea560af90",
+                    line:"0x7fd6cbb1cf90",
                 ), 
                 (    
                     color: "output",
@@ -2531,7 +2531,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x555851133f60",
+                    line:"0x559927419a70",
                 ), 
                 (    
                     color: "output",
@@ -2591,7 +2591,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x5558511486f8",
+                    line:"0x55992742b118",
                 ), 
                 (    
                     color: "output",
@@ -2611,7 +2611,7 @@
                 ), 
                 (    
                     color: "output",
-                    line:"0x5558513f6ec8",
+                    line:"0x5599276da4e8",
                 ), 
                 (    
                     color: "output",

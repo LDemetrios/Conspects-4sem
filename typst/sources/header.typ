@@ -192,11 +192,8 @@
 
   #set par(justify: true)
 
-  // #show raw : (it) => {
-  //   set par(justify:false)
-  //   it
-  // }
-
+  #set raw(align:left)
+  
   #body
 ]
 
